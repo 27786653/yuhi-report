@@ -5,11 +5,10 @@
 		http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-	
+		
 
-
-		<bean id="iReportView" class="com.yuhi.compent.ApplicationIreportView">
-		<!-- <property name="url" value="/WEB-INF/jasper/report2.jasper"/> -->
+		 <bean id="iReportView" class="com.yuhi.compent.ApplicationIreportView">
+		<property name="url" value="/WEB-INF/jasper/report2.jasper"/>
 		<property name="reportDataKey" value="jrMainDataSource"/>
-	</bean>
+		</bean> 
 </beans>

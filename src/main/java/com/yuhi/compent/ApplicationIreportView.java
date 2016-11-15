@@ -1,7 +1,8 @@
 package com.yuhi.compent;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
+import java.util.Properties;
 
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -12,6 +13,7 @@ public class ApplicationIreportView extends JasperReportsMultiFormatView {
 
 	private JasperReport jasperReport;
 
+	
 	public ApplicationIreportView() {
 		super();
 	}
@@ -21,14 +23,18 @@ public class ApplicationIreportView extends JasperReportsMultiFormatView {
 	protected JasperPrint fillReport(Map<String, Object> model)
 			throws Exception {
 		// TODO Auto-generated method stub
+		if(model.containsKey("model")){
+			Properties attributes=(Properties)model.get("model");
+			setAttributes(attributes);
+		}
 		if(model.containsKey("url")){
 			 setUrl(String.valueOf(model.get("url")));  
-	         this.jasperReport = loadReport();  
+			 this.jasperReport = loadReport();  
 		}
 		return super.fillReport(model);
 	}
 	 @Override
 	 protected JasperReport getReport() {  
 	        return this.jasperReport;  
-	 }  
+	 }
 }
